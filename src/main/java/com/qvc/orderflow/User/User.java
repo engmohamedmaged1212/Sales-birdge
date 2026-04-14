@@ -1,15 +1,13 @@
-package com.qvc.orderflow.entities;
+package com.qvc.orderflow.User;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.ColumnDefault;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.List;
@@ -22,7 +20,7 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
-    private Integer id;
+    private Long id;
 
     @Size(max = 50)
     @NotNull
@@ -41,7 +39,7 @@ public class User implements UserDetails {
     @Column(name = "is_active")
     private Boolean isActive = true;
 
-    @Column(name = "created_at")
+    @Column(name = "created_at" , insertable = false , updatable = false)
     private LocalDateTime createdAt;
 
     @Override
@@ -51,7 +49,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return getUsername();
+        return this.username    ;
     }
     @Override
     public String getPassword() {

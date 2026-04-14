@@ -1,4 +1,4 @@
-package com.qvc.orderflow.entities;
+package com.qvc.orderflow.User;
 
 public enum Role {
     AGENT,
