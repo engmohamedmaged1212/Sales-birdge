@@ -1,5 +1,6 @@
-package com.qvc.orderflow.User;
+package com.qvc.orderflow.User.dtos;
 
+import com.qvc.orderflow.User.User;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")

@@ -1,5 +1,7 @@
 package com.qvc.orderflow.User;
 
+import com.qvc.orderflow.User.dtos.UserCreationRequestDto;
+import com.qvc.orderflow.User.dtos.UserDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

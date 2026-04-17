@@ -1,5 +1,6 @@
 package com.qvc.orderflow.entities;
 
+import com.qvc.orderflow.Coustomer.Customer;
 import com.qvc.orderflow.User.User;
 import jakarta.persistence.*;
 import lombok.Getter;

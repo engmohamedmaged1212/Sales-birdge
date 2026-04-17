@@ -1,13 +1,11 @@
-package com.qvc.orderflow.entities;
+package com.qvc.orderflow.Address;
 
+import com.qvc.orderflow.Coustomer.Customer;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.ColumnDefault;
 
-import java.time.Instant;
 import java.time.LocalDateTime;
 
 @Getter
@@ -26,38 +24,38 @@ public class Address {
 
 
     @Column(name = "vorname")
-    private String vorname;
+    private String firstName;
 
     @Size(max = 50)
     @Column(name = "nachname")
-    private String nachname;
+    private String lastName;
 
     @Size(max = 100)
     @Column(name = "firma")
-    private String firma;
+    private String companyName;
 
 
     @Column(name = "ist_paketshop")
-    private Boolean istPaketshop = false;
+    private Boolean isParcelShop = false;
 
     @Column(name = "paketshop_anbieter")
     @Enumerated(EnumType.STRING)
-    private PaketshopAnbieter paketshopAnbieter;
+    private ParcelShopProvider parcelShopProvider;
 
     @Size(max = 20)
     @Column(name = "paketshop_id", length = 20)
-    private String paketshopId;
+    private String parcelShopId;
 
 
     @Column(name = "strasse")
-    private String strasse;
+    private String street;
 
 
     @Column(name = "hausnummer")
-    private String hausnummer;
+    private String houseNumber;
 
     @Column(name = "adresszusatz")
-    private String adresszusatz;
+    private String addressSupplement;
 
 
     @Column(name = "plz")
@@ -65,22 +63,22 @@ public class Address {
 
 
     @Column(name = "ort")
-    private String ort;
+    private String city;
 
     @Size(max = 50)
     @Column(name = "bundesland")
-    private String bundesland;
+    private String federalState;
 
 
     @Column(name = "land")
-    private String land;
+    private String country;
 
 
     @Column(name = "laendercode", columnDefinition = "CHAR(2)")
-    private String laendercode;
+    private String countryCode;
 
 
-    @Column(name = "is_default", nullable = false)
+    @Column(name = "is_default")
     private Boolean isDefault = false;
 
     @Column(name = "created_at")

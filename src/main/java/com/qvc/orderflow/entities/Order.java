@@ -1,5 +1,7 @@
 package com.qvc.orderflow.entities;
 
+import com.qvc.orderflow.Address.Address;
+import com.qvc.orderflow.Coustomer.Customer;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
@@ -7,7 +9,6 @@ import lombok.Setter;
 import org.hibernate.annotations.ColumnDefault;
 
 import java.math.BigDecimal;
-import java.time.Instant;
 import java.time.LocalDateTime;
 
 @Getter

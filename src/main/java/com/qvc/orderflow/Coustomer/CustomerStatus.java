@@ -1,4 +1,4 @@
-package com.qvc.orderflow.entities;
+package com.qvc.orderflow.Coustomer;
 
 public enum CustomerStatus {
     aktiv

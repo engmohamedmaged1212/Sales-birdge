@@ -1,4 +1,4 @@
-package com.qvc.orderflow.User;
+package com.qvc.orderflow.User.dtos;
 
 import lombok.Data;
 

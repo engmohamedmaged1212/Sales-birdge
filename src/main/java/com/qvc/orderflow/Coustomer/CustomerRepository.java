@@ -1,6 +1,5 @@
-package com.qvc.orderflow.repositories;
+package com.qvc.orderflow.Coustomer;
 
-import com.qvc.orderflow.entities.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CustomerRepository extends JpaRepository<Customer,Long> {
