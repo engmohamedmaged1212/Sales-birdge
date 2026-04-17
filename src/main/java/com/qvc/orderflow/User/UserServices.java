@@ -1,7 +1,9 @@
 package com.qvc.orderflow.User;
 
+import com.qvc.orderflow.User.dtos.ChangePasswordDto;
 import com.qvc.orderflow.User.dtos.UserCreationRequestDto;
 import com.qvc.orderflow.User.dtos.UserDto;
+import com.qvc.orderflow.User.dtos.UserMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -16,6 +18,7 @@ import java.time.LocalDateTime;
 public class UserServices implements UserDetailsService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final UserMapper userMapper;
 
     public UserDto createUser(UserCreationRequestDto userCreationRequestDto) {
         if (userRepository.findByUsername(userCreationRequestDto.getUsername()).isPresent()) {
@@ -34,7 +37,13 @@ public class UserServices implements UserDetailsService {
         userDto.setRole(user.getRole().toString());
         return userDto;
     }
-
+    // in dev mode only
+    UserDto changePassword(ChangePasswordDto requestDto) {
+        var user = userRepository.findByUsername(requestDto.getUsername()).orElseThrow(() -> new UsernameNotFoundException("username not found"));
+        user.setPassword(passwordEncoder.encode(requestDto.getNewPassword()));
+        var user_= userRepository.save(user);
+        return userMapper.toUserDto(user_);
+    }
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return userRepository.findByUsername(username)

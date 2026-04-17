@@ -1,6 +1,5 @@
-package com.qvc.orderflow.repositories;
+package com.qvc.orderflow.Address;
 
-import com.qvc.orderflow.Address.Address;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
