@@ -21,13 +21,11 @@ public class UserController {
         var u = userServices.createUser(userCreationRequestDto);
         return ResponseEntity.ok(u);
     }
+
     @PutMapping
     public ResponseEntity<?> changePassword(@Valid @RequestBody ChangePasswordDto requestDto) {
         userServices.changePassword(requestDto);
         return ResponseEntity.ok(requestDto);
     }
-
-
-
 
 }

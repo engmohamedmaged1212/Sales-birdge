@@ -1,0 +1,3 @@
+ALTER TABLE addresses
+    MODIFY COLUMN vorname VARCHAR(50) NULL,
+    MODIFY COLUMN nachname VARCHAR(50) NULL;

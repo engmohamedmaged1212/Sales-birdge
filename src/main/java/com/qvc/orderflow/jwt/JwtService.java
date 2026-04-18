@@ -28,7 +28,7 @@ public class JwtService {
                 .add("name" , user.getUsername())
                 .add("role" , user.getRole())
                 .issuedAt(new Date())
-                .expiration(new Date(System.currentTimeMillis() + 1000 * tokenExpiration))
+                .expiration(new Date(System.currentTimeMillis() + 1000L * tokenExpiration))
                 .build();
         String tokenValue = Jwts.builder()
                 .claims(claims)

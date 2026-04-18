@@ -36,8 +36,8 @@ spring:
 
 jwt:
   secret: ${JWT_SECRET}
-  accessTokenExpiration : 7200 #2h
-  refreshTokenExpiration : 604800 #7d
+  accessTokenExpiration: 7200    # ← شيل الـ space
+  refreshTokenExpiration: 604800 # ← شيل الـ space
 
 springdoc:
   api-docs:

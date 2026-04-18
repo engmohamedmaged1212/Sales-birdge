@@ -18,4 +18,7 @@ public class NewAddressRequestDto {
     private String plz;
     @NotBlank(message = "House Number is required")
     private String houseNumber;
+    @NotBlank(message = "code")
+    private String countryCode;
+
 }

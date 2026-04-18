@@ -14,6 +14,7 @@ public interface AddressMapper {
 
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "customer", ignore = true)
+    @Mapping(target = "countryCode", source = "countryCode")
     Address toAddress(NewAddressRequestDto dto);
     @Named("mapAddressToList")
     default List<Address> mapAddressToList(NewAddressRequestDto dto) {
