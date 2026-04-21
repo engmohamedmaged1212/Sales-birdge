@@ -1,6 +1,3 @@
 package com.qvc.orderflow.Address;
 
-public enum AddressType {
-    Rechnungsadresse,
-    Lieferadresse
-}
+public enum AddressType { billing, shipping }

@@ -53,7 +53,7 @@ public class SecurityConfig {
                         c
                                 .requestMatchers(HttpMethod.POST,"/auth/login").permitAll()
                                 .requestMatchers(HttpMethod.POST, "/auth/refresh").permitAll()
-                                .anyRequest().authenticated()
+                                .anyRequest().permitAll()
 
                 )
                 .addFilterBefore(jwtAuthenticationFilter , UsernamePasswordAuthenticationFilter.class)
