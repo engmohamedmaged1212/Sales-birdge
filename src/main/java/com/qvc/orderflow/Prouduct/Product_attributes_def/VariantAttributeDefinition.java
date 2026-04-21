@@ -1,5 +1,6 @@
-package com.qvc.orderflow.Prouduct;
+package com.qvc.orderflow.Prouduct.Product_attributes_def;
 
+import com.qvc.orderflow.Prouduct.Product;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;

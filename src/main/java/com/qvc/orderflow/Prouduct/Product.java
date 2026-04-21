@@ -1,10 +1,11 @@
 package com.qvc.orderflow.Prouduct;
 
+import com.qvc.orderflow.Prouduct.Product_Variants.ProductVariant;
+import com.qvc.orderflow.Prouduct.Product_attributes_def.VariantAttributeDefinition;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 

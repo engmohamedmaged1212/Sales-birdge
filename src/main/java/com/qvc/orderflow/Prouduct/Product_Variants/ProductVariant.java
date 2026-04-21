@@ -1,5 +1,7 @@
-package com.qvc.orderflow.Prouduct;
+package com.qvc.orderflow.Prouduct.Product_Variants;
 
+import com.qvc.orderflow.Prouduct.Product;
+import com.qvc.orderflow.Prouduct.VariantAttribute;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -32,8 +34,10 @@ public class ProductVariant {
     @Column(name = "sku", nullable = false, unique = true, length = 100)
     private String sku;
 
-    @Column(name = "price_override")
-    private BigDecimal priceOverride;
+    // Price now lives here — required, no fallback needed
+    @NotNull
+    @Column(name = "price", nullable = false)
+    private BigDecimal price;
 
     @Column(name = "stock", nullable = false)
     private Integer stock = 0;
@@ -46,8 +50,4 @@ public class ProductVariant {
 
     @OneToMany(mappedBy = "variant", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<VariantAttribute> attributes;
-
-    public BigDecimal getEffectivePrice() {
-        return priceOverride != null ? priceOverride : product.getBasePrice();
-    }
 }
