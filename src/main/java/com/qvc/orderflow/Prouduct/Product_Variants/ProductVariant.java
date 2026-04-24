@@ -1,7 +1,7 @@
 package com.qvc.orderflow.Prouduct.Product_Variants;
 
-import com.qvc.orderflow.Prouduct.Product;
-import com.qvc.orderflow.Prouduct.VariantAttribute;
+import com.qvc.orderflow.Prouduct.Main_Products.Product;
+import com.qvc.orderflow.Prouduct.Variant_Attributes.VariantAttribute;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;

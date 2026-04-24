@@ -1,6 +1,6 @@
 package com.qvc.orderflow.Prouduct.Product_Variants.dtos;
 
-import com.qvc.orderflow.Prouduct.dtos.Create_Product.CreateVariantRequest;
+import com.qvc.orderflow.Prouduct.Main_Products.dtos.Create_Product.CreateVariantRequest;
 import lombok.Data;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.qvc.orderflow.Prouduct.dtos.Create_Product;
+package com.qvc.orderflow.Prouduct.Main_Products.dtos.Create_Product;
 
 import lombok.Data;
 

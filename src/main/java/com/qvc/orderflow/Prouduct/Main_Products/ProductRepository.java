@@ -1,6 +1,5 @@
-package com.qvc.orderflow.Prouduct;
+package com.qvc.orderflow.Prouduct.Main_Products;
 
-import com.qvc.orderflow.Prouduct.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ProductRepository extends JpaRepository<Product,Long> {

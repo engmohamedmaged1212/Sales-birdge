@@ -1,6 +1,6 @@
-package com.qvc.orderflow.Prouduct.dtos.Create_Product;
+package com.qvc.orderflow.Prouduct.Main_Products.dtos.Create_Product;
 
-import com.qvc.orderflow.Prouduct.Product;
+import com.qvc.orderflow.Prouduct.Main_Products.Product;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;

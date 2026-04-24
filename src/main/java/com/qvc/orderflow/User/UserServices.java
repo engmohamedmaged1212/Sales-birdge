@@ -4,6 +4,7 @@ import com.qvc.orderflow.User.dtos.ChangePasswordDto;
 import com.qvc.orderflow.User.dtos.UserCreationRequestDto;
 import com.qvc.orderflow.User.dtos.UserDto;
 import com.qvc.orderflow.User.dtos.UserMapper;
+import com.qvc.orderflow.exceptions.UsernameAlreadyRegisteredException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -1,6 +1,6 @@
 package com.qvc.orderflow;
 
-import com.qvc.orderflow.User.UsernameAlreadyRegisteredException;
+import com.qvc.orderflow.exceptions.UsernameAlreadyRegisteredException;
 import com.qvc.orderflow.exceptions.ProductNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

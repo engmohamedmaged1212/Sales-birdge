@@ -1,4 +1,4 @@
-package com.qvc.orderflow.Prouduct;
+package com.qvc.orderflow.Prouduct.Variant_Attributes;
 
 import com.qvc.orderflow.Prouduct.Product_Variants.ProductVariant;
 import com.qvc.orderflow.Prouduct.Product_attributes_def.VariantAttributeDefinition;

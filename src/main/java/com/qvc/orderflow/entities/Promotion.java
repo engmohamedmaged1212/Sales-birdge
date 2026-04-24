@@ -1,6 +1,6 @@
 package com.qvc.orderflow.entities;
 
-import com.qvc.orderflow.Prouduct.Product;
+import com.qvc.orderflow.Prouduct.Main_Products.Product;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.OnDelete;

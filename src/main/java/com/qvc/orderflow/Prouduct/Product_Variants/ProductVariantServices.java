@@ -1,15 +1,15 @@
 package com.qvc.orderflow.Prouduct.Product_Variants;
 
-import com.qvc.orderflow.Prouduct.Product;
-import com.qvc.orderflow.Prouduct.ProductRepository;
-import com.qvc.orderflow.Prouduct.VariantAttribute;
-import com.qvc.orderflow.Prouduct.VariantAttributeRepository;
+import com.qvc.orderflow.Prouduct.Main_Products.Product;
+import com.qvc.orderflow.Prouduct.Main_Products.ProductRepository;
+import com.qvc.orderflow.Prouduct.Variant_Attributes.VariantAttribute;
+import com.qvc.orderflow.Prouduct.Variant_Attributes.VariantAttributeRepository;
 import com.qvc.orderflow.Prouduct.Product_Variants.dtos.*;
 import com.qvc.orderflow.Prouduct.Product_Variants.repo.ProductVariantRepository;
 import com.qvc.orderflow.Prouduct.Product_Variants.repo.ProductVariantRepositoryCustom;
 import com.qvc.orderflow.Prouduct.Product_attributes_def.VariantAttributeDefinition;
 import com.qvc.orderflow.Prouduct.Product_attributes_def.VariantAttributeDefinitionRepository;
-import com.qvc.orderflow.Prouduct.dtos.SearchRequest;
+import com.qvc.orderflow.Prouduct.Main_Products.dtos.SearchRequest;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

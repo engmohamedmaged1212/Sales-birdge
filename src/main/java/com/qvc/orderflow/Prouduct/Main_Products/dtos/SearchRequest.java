@@ -1,4 +1,4 @@
-package com.qvc.orderflow.Prouduct.dtos;
+package com.qvc.orderflow.Prouduct.Main_Products.dtos;
 
 import lombok.Data;
 

@@ -1,7 +1,7 @@
 package com.qvc.orderflow.Prouduct.Product_attributes_def;
 
-import com.qvc.orderflow.Prouduct.Product;
-import com.qvc.orderflow.Prouduct.ProductRepository;
+import com.qvc.orderflow.Prouduct.Main_Products.Product;
+import com.qvc.orderflow.Prouduct.Main_Products.ProductRepository;
 import com.qvc.orderflow.Prouduct.Product_attributes_def.dtos.Attribute_Response.Attribute;
 import com.qvc.orderflow.Prouduct.Product_attributes_def.dtos.Attribute_Response.AttributesResponse;
 import com.qvc.orderflow.Prouduct.Product_attributes_def.dtos.GetAttributesForProductDto;

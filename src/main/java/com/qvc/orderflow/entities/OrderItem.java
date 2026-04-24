@@ -1,6 +1,6 @@
 package com.qvc.orderflow.entities;
 
-import com.qvc.orderflow.Prouduct.Product;
+import com.qvc.orderflow.Prouduct.Main_Products.Product;
 import com.qvc.orderflow.Prouduct.Product_Variants.ProductVariant;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;

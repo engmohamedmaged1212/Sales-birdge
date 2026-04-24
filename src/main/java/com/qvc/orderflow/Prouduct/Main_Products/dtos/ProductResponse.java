@@ -1,4 +1,4 @@
-package com.qvc.orderflow.Prouduct.dtos;
+package com.qvc.orderflow.Prouduct.Main_Products.dtos;
 
 import com.qvc.orderflow.Prouduct.Product_Variants.dtos.VariantResponse;
 import com.qvc.orderflow.Prouduct.Product_attributes_def.dtos.Attribute_Response.AttributesResponse;

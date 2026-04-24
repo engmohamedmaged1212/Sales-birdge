@@ -1,9 +1,9 @@
-package com.qvc.orderflow.Prouduct;
+package com.qvc.orderflow.Prouduct.Main_Products;
 
 import com.qvc.orderflow.Prouduct.Product_Variants.dtos.VariantRequest;
-import com.qvc.orderflow.Prouduct.dtos.Create_Product.CreateProductRequest;
-import com.qvc.orderflow.Prouduct.dtos.ProductResponse;
-import com.qvc.orderflow.Prouduct.dtos.SearchRequest;
+import com.qvc.orderflow.Prouduct.Main_Products.dtos.Create_Product.CreateProductRequest;
+import com.qvc.orderflow.Prouduct.Main_Products.dtos.ProductResponse;
+import com.qvc.orderflow.Prouduct.Main_Products.dtos.SearchRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

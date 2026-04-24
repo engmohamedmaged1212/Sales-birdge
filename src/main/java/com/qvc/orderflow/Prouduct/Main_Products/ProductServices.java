@@ -1,4 +1,4 @@
-package com.qvc.orderflow.Prouduct;
+package com.qvc.orderflow.Prouduct.Main_Products;
 
 import com.qvc.orderflow.Prouduct.Product_Variants.ProductVariantServices;
 import com.qvc.orderflow.Prouduct.Product_Variants.dtos.GetAllVariantsRequest;
@@ -7,9 +7,9 @@ import com.qvc.orderflow.Prouduct.Product_Variants.repo.ProductVariantRepository
 import com.qvc.orderflow.Prouduct.Product_attributes_def.VariantAttributeDefinitionServices;
 import com.qvc.orderflow.Prouduct.Product_attributes_def.dtos.GetAttributesForProductDto;
 import com.qvc.orderflow.Prouduct.Product_attributes_def.dtos.InsertAttributesRequests;
-import com.qvc.orderflow.Prouduct.dtos.Create_Product.CreateProductRequest;
-import com.qvc.orderflow.Prouduct.dtos.ProductResponse;
-import com.qvc.orderflow.Prouduct.dtos.SearchRequest;
+import com.qvc.orderflow.Prouduct.Main_Products.dtos.Create_Product.CreateProductRequest;
+import com.qvc.orderflow.Prouduct.Main_Products.dtos.ProductResponse;
+import com.qvc.orderflow.Prouduct.Main_Products.dtos.SearchRequest;
 import com.qvc.orderflow.exceptions.ProductNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
