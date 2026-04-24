@@ -17,7 +17,7 @@ public class CreateVariantRequest {
     @NotBlank
     private String sku;
 
-    @NotNull
+    @NotNull(message = "price")
     @Positive
     private BigDecimal price;
 

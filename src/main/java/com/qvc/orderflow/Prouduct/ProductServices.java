@@ -11,13 +11,12 @@ import com.qvc.orderflow.Prouduct.dtos.Create_Product.CreateProductRequest;
 import com.qvc.orderflow.Prouduct.dtos.ProductResponse;
 import com.qvc.orderflow.Prouduct.dtos.SearchRequest;
 import com.qvc.orderflow.exceptions.ProductNotFoundException;
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
@@ -39,6 +38,7 @@ public class ProductServices {
         Product product = new Product();
         product.setProductName(request.getProductName());
         product.setDescription(request.getDescription());
+        product.setCreatedAt(LocalDateTime.now());
         product.setSize(request.getProductSize() != null
                 ? request.getProductSize() : Product.ProductSize.normal);
         product.setIsElectrical(request.isElectrical());
@@ -78,8 +78,8 @@ public class ProductServices {
     // ─────────────────────────────────────────────
     //  SEARCH
     //  GET /api/products/{id}?color=Red&size=M
-    //  filters is empty  → return all variants
-    //  filters has values → return matching variants only
+    //  filters is empty  -> return all variants
+    //  filters has values -> return matching variants only
     // ─────────────────────────────────────────────
     @Transactional(readOnly = true)
     public ProductResponse searchProduct(SearchRequest request) {
@@ -92,17 +92,19 @@ public class ProductServices {
         return response;
     }
 
-    // ─────────────────────────────────────────────
     //  INTERNAL: used by other services
-    // ─────────────────────────────────────────────
     public Product getProductByIdForAnotherServices(Long productId) {
         return productRepository.findById(productId)
                 .orElseThrow(() -> new ProductNotFoundException("Product not found: " + productId));
     }
 
-    // ─────────────────────────────────────────────
+    public ProductResponse addVariantsToProduct(VariantRequest request){
+        var p = this.getProductByIdForAnotherServices(request.getProductId());
+        variantServices.createVariants(request);
+        return buildResponse(p.getId());
+    }
+
     //  PRIVATE: assemble full ProductResponse
-    // ─────────────────────────────────────────────
     private ProductResponse buildResponse(Long productId) {
 
         Product product = getProductByIdForAnotherServices(productId);
