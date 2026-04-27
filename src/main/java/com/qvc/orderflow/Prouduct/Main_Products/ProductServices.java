@@ -2,7 +2,9 @@ package com.qvc.orderflow.Prouduct.Main_Products;
 
 import com.qvc.orderflow.Prouduct.Product_Variants.ProductVariantServices;
 import com.qvc.orderflow.Prouduct.Product_Variants.dtos.GetAllVariantsRequest;
+import com.qvc.orderflow.Prouduct.Product_Variants.dtos.UpdateVariantRequest;
 import com.qvc.orderflow.Prouduct.Product_Variants.dtos.VariantRequest;
+import com.qvc.orderflow.Prouduct.Product_Variants.dtos.VariantResponse;
 import com.qvc.orderflow.Prouduct.Product_Variants.repo.ProductVariantRepositoryCustom;
 import com.qvc.orderflow.Prouduct.Product_attributes_def.VariantAttributeDefinitionServices;
 import com.qvc.orderflow.Prouduct.Product_attributes_def.dtos.GetAttributesForProductDto;
@@ -104,6 +106,9 @@ public class ProductServices {
         return buildResponse(p.getId());
     }
 
+    public VariantResponse updateVariant(UpdateVariantRequest request){
+       return variantServices.updateVariants(request);
+    }
     //  PRIVATE: assemble full ProductResponse
     private ProductResponse buildResponse(Long productId) {
 

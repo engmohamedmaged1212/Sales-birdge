@@ -1,9 +1,11 @@
 package com.qvc.orderflow.Prouduct.Main_Products;
 
+import com.qvc.orderflow.Prouduct.Product_Variants.dtos.UpdateVariantRequest;
 import com.qvc.orderflow.Prouduct.Product_Variants.dtos.VariantRequest;
 import com.qvc.orderflow.Prouduct.Main_Products.dtos.Create_Product.CreateProductRequest;
 import com.qvc.orderflow.Prouduct.Main_Products.dtos.ProductResponse;
 import com.qvc.orderflow.Prouduct.Main_Products.dtos.SearchRequest;
+import com.qvc.orderflow.Prouduct.Product_Variants.dtos.VariantResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -54,5 +56,10 @@ public class ProductController {
         request.setFilters(filters);
 
         return ResponseEntity.ok(productServices.searchProduct(request));
+    }
+
+    @PutMapping("update")
+    public ResponseEntity<VariantResponse> updateProduct(@RequestBody @Valid    UpdateVariantRequest request){
+        return ResponseEntity.ok(productServices.updateVariant(request));
     }
 }

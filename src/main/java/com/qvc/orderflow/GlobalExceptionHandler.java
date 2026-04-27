@@ -2,6 +2,7 @@ package com.qvc.orderflow;
 
 import com.qvc.orderflow.exceptions.UsernameAlreadyRegisteredException;
 import com.qvc.orderflow.exceptions.ProductNotFoundException;
+import com.qvc.orderflow.exceptions.VariantNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -36,8 +37,15 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ProductNotFoundException.class)
     public ResponseEntity<Map<String , String>> handleEmailAlreadyRegistered(ProductNotFoundException ex){
         return ResponseEntity
-                .status(HttpStatus.BAD_REQUEST)
+                .status(HttpStatus.NOT_FOUND)
                 .body(Map.of("error" , ex.getMessage() ));
     }
 
+    //VariantNotFoundException
+    @ExceptionHandler(VariantNotFoundException.class)
+    public ResponseEntity<Map<String , String>> handleEmailAlreadyRegistered(VariantNotFoundException ex){
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND)
+                .body(Map.of("error" , ex.getMessage() ));
+    }
 }

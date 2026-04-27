@@ -1,9 +1,6 @@
 package com.qvc.orderflow.User;
 
-import com.qvc.orderflow.User.dtos.ChangePasswordDto;
-import com.qvc.orderflow.User.dtos.UserCreationRequestDto;
-import com.qvc.orderflow.User.dtos.UserDto;
-import com.qvc.orderflow.User.dtos.UserMapper;
+import com.qvc.orderflow.User.dtos.*;
 import com.qvc.orderflow.exceptions.UsernameAlreadyRegisteredException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -43,6 +40,15 @@ public class UserServices implements UserDetailsService {
         var user = userRepository.findByUsername(requestDto.getUsername()).orElseThrow(() -> new UsernameNotFoundException("username not found"));
         user.setPassword(passwordEncoder.encode(requestDto.getNewPassword()));
         var user_= userRepository.save(user);
+        return userMapper.toUserDto(user_);
+    }
+
+    // change the credentials
+    public UserDto changeCredentials(ChangeCredentialsRequest requestDto) {
+        var user = userRepository.findByUsername(requestDto.getUsername()).orElseThrow(() -> new UsernameNotFoundException("username not found"));
+        user.setRole(Role.valueOf(requestDto.getRole()));
+        user.setIsActive(requestDto.getIsActive());
+        var user_ = userRepository.save(user);
         return userMapper.toUserDto(user_);
     }
     @Override

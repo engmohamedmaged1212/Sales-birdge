@@ -14,6 +14,6 @@ public class UserCreationRequestDto {
     @Size(min = 6 ,max = 25, message = "Password must be between 6 and 25 characters")
     private String password;
 
-    @NotBlank(message = "Admin is required")
+    @NotBlank(message = "Role is required")
     private String role;
 }

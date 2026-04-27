@@ -10,11 +10,14 @@ import com.qvc.orderflow.Prouduct.Product_Variants.repo.ProductVariantRepository
 import com.qvc.orderflow.Prouduct.Product_attributes_def.VariantAttributeDefinition;
 import com.qvc.orderflow.Prouduct.Product_attributes_def.VariantAttributeDefinitionRepository;
 import com.qvc.orderflow.Prouduct.Main_Products.dtos.SearchRequest;
+import com.qvc.orderflow.exceptions.VariantNotFoundException;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
+import java.net.UnknownServiceException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -48,9 +51,7 @@ public class ProductVariantServices {
         return response;
     }
 
-    // ─────────────────────────────────────────────
     //  SEARCH VARIANTS BY FILTERS
-    // ─────────────────────────────────────────────
     @Transactional(readOnly = true)
     public VariantResponse searchVariants(SearchRequest request) {
         ensureProductExists(request.getProductId());
@@ -65,11 +66,7 @@ public class ProductVariantServices {
         return response;
     }
 
-    // ─────────────────────────────────────────────
-    //  CREATE VARIANTS
-    //  Fix: save variant first → then save its attributes separately
-    //  This guarantees variant has an ID before attributes reference it
-    // ─────────────────────────────────────────────
+
     @Transactional
     public VariantResponse createVariants(VariantRequest request) {
         Product product = ensureProductExists(request.getProductId());
@@ -121,6 +118,26 @@ public class ProductVariantServices {
         return getAllVariants(getAllRequest);
     }
 
+    // update the price or the stock
+    @Transactional
+    public VariantResponse  updateVariants(UpdateVariantRequest request) {
+        var v  = productVariantRepository.findById(request.getVariantId()).orElseThrow(()->new VariantNotFoundException("THIS VARIANT IS NOT FOUND"));
+        if(request.getQuantity() != null && request.getQuantity() > 0){
+            v.setStock(request.getQuantity());
+        }
+        if(request.getPrice()!= null){
+            if (request.getPrice().compareTo(BigDecimal.ONE) < 0) {
+                throw new IllegalArgumentException("Price cannot be negative");
+            }
+            v.setPrice(request.getPrice());
+        }
+        productVariantRepository.save(v);
+
+        mapToVariantDto(v);
+        var r = new GetAllVariantsRequest();
+        r.setProductId(v.getProduct().getId());
+        return getAllVariants(r);
+    }
     // ─────────────────────────────────────────────
     //  PRIVATE
     // ─────────────────────────────────────────────
